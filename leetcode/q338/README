@@ -1,0 +1,16 @@
+this question used bitwise operation,it includes AND opration and Left Shift operation
+when you want to judge whether a number is a power of 2,you can use a&b==0
+if a is a power of 2,then a&b=0,else a&b!=0;
+and there are still more things you need to know:
+but now,you only need to remeber the code:
+    vector<int> countBits(int n) {
+        vector<int>bits(n+1);
+        int highbit=0;
+        for(int i=1;i<=n;i++){
+            if((i&(i-1))==0){//if i is aa power of 2
+                highbit=i;
+            }
+            bits[i]=bits[i-highbit]+1;
+        }
+        return bits;
+    }

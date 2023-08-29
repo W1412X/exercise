@@ -1,0 +1,39 @@
+class Solution {
+public:
+    string decodeString(string s) {
+        int i=0;
+        int multiple=1;
+        string re="";
+        int ifrepeat;//to record if in the []
+        for(int i=0;i<s.size();i++){
+            multiple=1;
+            while(multiple==1&&s[i]>=97&&s[i]<=122&&i<s.size()){//if only one
+                re+=s[i];
+                i++;
+            }
+            if(s[i]>=48&&s[i]<=56){
+                multiple=s[i]-48;
+                i+=2;//to go the content of the repeat string
+                
+                string g="";
+                while(s[i]!=']'){
+                    g+=s[i];
+                    i++;
+                }//to gain the string in the []
+                while(multiple>=1){
+                    re+=g;
+                    multiple--;
+                }
+            }
+            
+        }
+        return re;
+    }
+};
+
+here is the wrong try;
+and the reason is that the situation like this:
+4[3[abc]c]
+
+you should use the stack to solve this problem;
+there is another ways to solve it;

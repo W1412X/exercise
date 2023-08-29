@@ -1,0 +1,2 @@
+using bitwise XOR to solve this question
+the meaning of operaton '^' is that for two binary number,if the same position with the same number(both 0 or both 1),then the '^' result of them is 0,or is 1;
